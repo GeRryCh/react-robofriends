@@ -15,8 +15,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
+    fetch('https://jsonplaceholder.typicode.com/users', {
+      headers: { 'Access-Control-Allow-Origin': '*' }
+    }).then(response => response.json())
       .then(users => this.setState({ robots: users }))
   }
 
